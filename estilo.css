@@ -84,7 +84,11 @@ footer{
     background-color: #003366;
     color: #ffffff;
     cursor: pointer;
-    
 
+
+
+}
+.flecha:hover{
+    background-color: #0055aa;
 }
 
