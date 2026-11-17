@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="./estilo.css">
 </head>
 <body>
-  <div class="contenedor-global">
-    <div class="pagina1">
+  <div class="contenedor-tablas">
+    <div id="pagina1" class="pagina">
       <table>
         <thead>
           <tr>
@@ -64,7 +64,7 @@
         </tbody>
       </table>
     </div>
-    <div class="pagina2">
+    <div id="pagina2" class="pagina">
       <table>
         <thead>
           <tr>
@@ -120,7 +120,7 @@
         </tbody>
       </table>
     </div>
-    <div class="pagina3">
+    <div id="pagina3" class="pagina">
       <table>
         <thead>
           <tr>
@@ -176,7 +176,7 @@
         </tbody>
       </table>
     </div>
-    <div class="pagina4">
+    <div id="pagina4" class="pagina">
       <table>
         <thead>
           <tr>
@@ -239,8 +239,45 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script>
       $(document).ready(function(){
-        $()
-      })
+        function Formatotabla(pagina){
+          $(pagina +'table').css({
+            width:'100%',
+            'text-align':'center',
+            'margin-bottom':'20px',
+          });
+          $(pagina + 'th').css({
+            'background-color':'#7d7474',
+            color:'#000000',
+            padding:'10px'
+          });
+          $(pagina + 'td').css({
+            padding:'8px'
+          });
+        }
+        $(".pagina").hide();
+        $("#pagina1").show();
+        Formatotabla("#pagina1");
+        $("#pag1").click(function(){
+          $(".pagina").hide();
+          $("#pagina1").show();
+          Formatotabla("#pagina1");
+        });
+        $("#pag2").click(function(){
+          $(".pagina").hide();
+          $("#pagina2").show();
+          Formatotabla("#pagina2");
+        });
+        $("#pag3").click(function(){
+          $(".pagina").hide();
+          $("#pagina3").show();
+          Formatotabla("#pagina3");
+        });
+        $("#pag4").click(function(){
+          $(".pagina").hide();
+          $("#pagina4").show();
+          Formatotabla("#pagina4");
+        });
+      });
     </script>
   </div>
 </body>
