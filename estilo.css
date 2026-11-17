@@ -101,4 +101,5 @@ footer{
     background-color: #4d4747;
     color: #51699e;
     justify-content: center;
+    gap: 15px;
 }
