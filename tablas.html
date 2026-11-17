@@ -249,18 +249,20 @@
     <script>
       $(document).ready(function(){
         function Formatotabla(pagina){
-          $(pagina +'table').css({
+          $(pagina +' table').css({
             width:'100%',
             'text-align':'center',
             'margin-bottom':'20px',
           });
-          $(pagina + 'th').css({
+          $(pagina + ' th').css({
             'background-color':'#7d7474',
             color:'#000000',
-            padding:'10px'
+            padding:'10px',
+            border:'1px'
           });
-          $(pagina + 'td').css({
-            padding:'8px'
+          $(pagina + ' td').css({
+            padding:'8px',
+            border:'1px'
           });
         }
         $(".pagina").hide();
