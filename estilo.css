@@ -49,11 +49,12 @@ footer{
     color: #ffffff;
 }
 .imagenes{
-    width: 100%;
+    width: 1005px;
     display: flex;
     gap: 15px;
     margin-top: 50px;
     margin-bottom: 225px;
+    overflow: hidden;
 
 }
 .imagenes img{
@@ -79,5 +80,9 @@ footer{
 .elemento{
     position: relative;
 }
+.flecha{
+    background-color: #003366;
+    color: #ffffff;
 
+}
 
