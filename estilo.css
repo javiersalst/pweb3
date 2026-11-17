@@ -62,7 +62,7 @@ footer{
     border-radius: 5px;
 }
 .nombre{
-    width: 100px;
+    width: 200px;
     height: 50px;
     border-radius: 5px;
     background-color: #4d4747;
@@ -70,6 +70,7 @@ footer{
     margin-bottom: 10px;
     display: none;
     color: #ffffff;
+    padding: 5px;
 }
 .elemento{
     position: relative;
