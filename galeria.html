@@ -18,10 +18,27 @@
     </div>
     <div class="imagenes">
         <img src="./images/invierno.jpg" alt="Invierno">
+        <p class="nombre">Invierno</p>
         <img src="./images/primavera.jpg" alt="Primavera">
+        <p class="Primavera">Primavera</p>
         <img src="./images/verano.jpg" alt="Verano">
+        <p class="nombre">Verano</p>
         <img src="./images/otoño.jpg" alt="Otoño">
+        <p class="nombre">Otoño</p>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script>
+     $(document).ready(function(){
+      $("#imagenes").hover(
+        function(){
+          $(this).find("nombre").show();
+        },
+        function(){
+          $(this).find("nombre").hide();
+        }
+      );
+     }) 
+    </script>
     <footer><strong>Universidad de Alcalá</strong></footer>
   </body>
 </html>
