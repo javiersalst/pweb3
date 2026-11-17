@@ -50,10 +50,13 @@ footer{
 }
 .imagenes{
     width: 100%;
-    height: 280px;
-    border-radius: 5px;
+    display: flex;
+    gap: 15px;
     margin-top: 10px;
-    float: right;
-    position: relative;
+}
+.imagenes img{
+    width: 240px;
+    height: 180px;
+    border-radius: 5px;
 }
 
