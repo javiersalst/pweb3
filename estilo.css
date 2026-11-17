@@ -53,6 +53,7 @@ footer{
     display: flex;
     gap: 15px;
     margin-top: 10px;
+    margin-bottom: 50px;
 }
 .imagenes img{
     width: 240px;
