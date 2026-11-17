@@ -54,6 +54,7 @@ footer{
     gap: 15px;
     margin-top: 50px;
     margin-bottom: 225px;
+    position: relative;
 }
 .imagenes img{
     width: 240px;
