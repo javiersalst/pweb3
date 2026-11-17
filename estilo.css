@@ -54,7 +54,7 @@ footer{
     gap: 15px;
     margin-top: 50px;
     margin-bottom: 225px;
-    position: relative;
+
 }
 .imagenes img{
     width: 240px;
@@ -69,6 +69,9 @@ footer{
     margin-top: 10px;
     margin-bottom: 10px;
     display: none;
+}
+.elemento{
+    position: relative;
 }
 
 
