@@ -89,3 +89,8 @@ footer{
     padding: 5px 5px;
 
 }
+.contenerdor-global{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
