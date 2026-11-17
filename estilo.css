@@ -52,8 +52,6 @@ footer{
     width: 1005px;
     display: flex;
     gap: 15px;
-    margin-top: 50px;
-    margin-bottom: 225px;
     overflow: hidden;
 
 }
@@ -93,4 +91,6 @@ footer{
     display: flex;
     gap: 15px;
     align-items: center;
+    margin-bottom: 200px;
+    margin-top: 50px;
 }
