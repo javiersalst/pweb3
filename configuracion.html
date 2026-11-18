@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Configuración</title>
+    <link rel="stylesheet" href="./estilo.css">
+  </head>
+  <body>
+    <header>Configuración</header>
+    <div class="barra-menu">
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="galeria.html">Galeria Imágenes</a></li>
+                <li><a href="tablas.html">Tablas</a></li>
+                <li><a href="configuracion.html">Configuración</a></li>
+            </ul>
+        </nav>
+    </div>
+    <main>
+      <form>
+        <p>País:
+          <select id="pais">
+            <option value="">Selecciona un país</option>
+            <option value="espana">España</option>
+            <option value="francia">Francia</option>
+            <option value="italia">Italia</option>
+            <option value="portugal">Portugal</option>
+          </select>
+        </p>
+        <p>Ciudad:
+          <select id="ciudad">
+            <option value="">Selecciona una ciudad</option>
+          </select>
+        </p>
+      </form>
+    </main>
+    <footer><strong>Universidad de Alcalá</strong></footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#pais").change(function(){
+          var pais = $(this).val();
+          $("#ciudad").html('<option value="">Selecciona una ciudad</option>');
+          if(pais != ""){
+            $.get("datos/" + pais + ".txt", function(texto){
+              var lista = texto.split("\n");
+              for(var i = 0; i < lista.length; i++){
+                var nombre = $.trim(lista[i]);
+                if(nombre != ""){
+                  $("#ciudad").append('<option value="' + nombre + '">' + nombre + '</option>');
+                }
+              }
+            }, "text");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
