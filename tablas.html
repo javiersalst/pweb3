@@ -141,8 +141,23 @@
     <button id="pag4" class="button">Página 4</button>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script>
+          <script>
       $(document).ready(function(){
+        var columnas = ["ciudad", "temperatura", "humedad", "ruido", "luz", "color"];
+
+        function anadirChecks(pagina){
+          if($(pagina + " .check").length == 0){
+            var filaChecks = "<tr><td>Mostrar histograma</td>";
+            for(var k = 1; k <= 4; k++){
+              filaChecks += '<td><input type="checkbox" class="check" value="' + k + '"></td>';
+            }
+            filaChecks += "<td>-</td></tr>";
+            $(pagina + " thead").append(filaChecks);
+          }
+        }
+
         function Formatotabla(pagina){
+          anadirChecks(pagina);
           $(pagina +' table').css({
             width:'100%',
             'text-align':'center',
@@ -159,30 +174,96 @@
             border:'1px'
           });
         }
-        $(".pagina").hide();
-        $("#pagina1").show();
-        Formatotabla("#pagina1");
-        $("#pag1").click(function(){
-          $(".pagina").hide();
-          $("#pagina1").show();
-          Formatotabla("#pagina1");
+
+        function crearTabla(pagina, datos){
+          var html = "<table><thead><tr>" + $("#pagina1 thead tr").first().html() + "</tr></thead><tbody>";
+          for(var f = 0; f < datos.length; f++){
+            html += "<tr>";
+            for(var c = 0; c < datos[f].length; c++){
+              html += "<td>" + datos[f][c] + "</td>";
+            }
+            html += "</tr>";
+          }
+          html += "</tbody></table>";
+          $(pagina).html(html);
+          Formatotabla(pagina);
+        }
+
+        function cargarXML(){
+          var peticion = new XMLHttpRequest();
+          peticion.onreadystatechange = function(){
+            if(peticion.readyState == 4 && peticion.status == 200){
+              var estaciones = peticion.responseXML.getElementsByTagName("estacion");
+              var filasXML = [];
+              for(var e = 0; e < estaciones.length; e++){
+                var filaXML = [];
+                for(var n = 0; n < columnas.length; n++){
+                  filaXML.push(estaciones[e].getElementsByTagName(columnas[n])[0].textContent);
+                }
+                filasXML.push(filaXML);
+              }
+              crearTabla("#pagina2", filasXML);
+            }
+          };
+          peticion.open("GET", "datos/pagina2.xml", true);
+          peticion.send();
+        }
+
+        function cargarJSON(){
+          $.getJSON("datos/pagina3.json", function(respuesta){
+            var filasJSON = [];
+            $.each(respuesta, function(posicion, estacion){
+              var filaJSON = [];
+              for(var m = 0; m < columnas.length; m++){
+                filaJSON.push(estacion[columnas[m]]);
+              }
+              filasJSON.push(filaJSON);
+            });
+            crearTabla("#pagina3", filasJSON);
+          });
+        }
+
+        function mostrarHistograma(columna){
+          $("#titulo-histograma").text($(".pagina:visible th").eq(columna).text());
+          $("#barras").html("");
+          $(".pagina:visible tbody tr").each(function(){
+            var nombreCiudad = $(this).find("td").eq(0).text();
+            var valor = $(this).find("td").eq(columna).text();
+            $("#barras").append('<div class="fila-histograma"><div class="nombre-ciudad">' + nombreCiudad + '</div><div class="barra" style="width:' + (valor * 3) + 'px">' + valor + '</div></div>');
+          });
+          $("#histograma").show();
+        }
+
+        $(document).on("change", ".check", function(){
+          if($(this).is(":checked")){
+            $(".check").not(this).prop("checked", false);
+            mostrarHistograma($(this).val());
+          } else {
+            $("#histograma").hide();
+          }
         });
-        $("#pag2").click(function(){
+
+        function mostrarPagina(numero){
+          $(".check").prop("checked", false);
+          $("#histograma").hide();
           $(".pagina").hide();
-          $("#pagina2").show();
-          Formatotabla("#pagina2");
+          $("#pagina" + numero).show();
+          if(numero == 2){
+            cargarXML();
+          } else if(numero == 3){
+            cargarJSON();
+          } else {
+            Formatotabla("#pagina" + numero);
+          }
+        }
+
+        $(".button").click(function(){
+          mostrarPagina($(this).attr("id").replace("pag", ""));
         });
-        $("#pag3").click(function(){
-          $(".pagina").hide();
-          $("#pagina3").show();
-          Formatotabla("#pagina3");
-        });
-        $("#pag4").click(function(){
-          $(".pagina").hide();
-          $("#pagina4").show();
-          Formatotabla("#pagina4");
-        });
+
+        mostrarPagina(1);
       });
+    </script>
     </script>
   </div>
 </body>
