@@ -103,3 +103,22 @@ footer{
     justify-content: center;
     gap: 15px;
 }
+#histograma{
+    display: none;
+    margin-top: 30px;
+    background-color: #ffffff;
+    padding: 10px;
+}
+.fila-histograma{
+    display: flex;
+    margin-bottom: 5px;
+}
+.nombre-ciudad{
+    width: 160px;
+}
+.barra{
+    background-color: #003366;
+    color: #ffffff;
+    height: 25px;
+    text-align: right;
+}
