@@ -1,0 +1,7 @@
+[
+  { "ciudad": "Meco", "temperatura": 50, "humedad": 28, "ruido": 190, "luz": 100, "color": "0FFF00" },
+  { "ciudad": "Denia", "temperatura": 50, "humedad": 89, "ruido": 130, "luz": 251, "color": "FF00F0" },
+  { "ciudad": "Pamplona", "temperatura": 65, "humedad": 36, "ruido": 189, "luz": 170, "color": "FFFF00" },
+  { "ciudad": "Murcia", "temperatura": 96, "humedad": 100, "ruido": 101, "luz": 160, "color": "0FF0FF" },
+  { "ciudad": "Cartagena", "temperatura": 75, "humedad": 56, "ruido": 90, "luz": 150, "color": "FFFFF0" }
+]
