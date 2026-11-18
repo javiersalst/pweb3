@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<estaciones>
+  <estacion><ciudad>Torrejon de Ardoz</ciudad><temperatura>22</temperatura><humedad>46</humedad><ruido>170</ruido><luz>110</luz><color>000F00</color></estacion>
+  <estacion><ciudad>Valencia</ciudad><temperatura>40</temperatura><humedad>60</humedad><ruido>130</ruido><luz>80</luz><color>FFF000</color></estacion>
+  <estacion><ciudad>Caceres</ciudad><temperatura>45</temperatura><humedad>60</humedad><ruido>100</ruido><luz>110</luz><color>00FFF0</color></estacion>
+  <estacion><ciudad>Asturias</ciudad><temperatura>28</temperatura><humedad>46</humedad><ruido>201</ruido><luz>105</luz><color>FF00FF</color></estacion>
+  <estacion><ciudad>Jaen</ciudad><temperatura>70</temperatura><humedad>101</humedad><ruido>180</ruido><luz>150</luz><color>FFFF00</color></estacion>
+</estaciones>
